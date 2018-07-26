@@ -1,14 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 
-import SearchByName from './SearchByName.jsx'
+import SearchByName from './searchByName.jsx'
+import SearchedFood from './searchedFood.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      foodResults: [],
-      ingredientCount: 5
+      foodResults: []
     }
     this.searchFood = this.searchFood.bind(this)
   }
@@ -18,7 +18,7 @@ class App extends React.Component {
     axios.get('/foodsearch', {
       params: {
         maxCalorie: food.maxCalorie,
-        ingredientCount: this.state.ingredientCount,
+        ingredientCount: food.count,
         foodSearch: food.food
       }
     })
@@ -40,6 +40,9 @@ class App extends React.Component {
         <hr style={{backgroundColor: 'teal'}}></hr>
         <div>
           <SearchByName searchFood={this.searchFood}/>
+        </div>
+        <div>
+          <SearchedFood foodResults={this.state.foodResults}/>
         </div>
       </div>
     )
