@@ -6,6 +6,7 @@
   touch-action: none;
 }
 .rangeslider,
+
 .rangeslider .rangeslider__fill {
   display: block;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -28,7 +29,7 @@
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 10px;
   transition: all 0.1s ease-in;
   border-radius: 4px;
   display: inline-block;

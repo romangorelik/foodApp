@@ -41,7 +41,7 @@ class SearchByName extends React.Component {
     return (
       <div>
         <div style={{width: 200}}>
-          Calories
+        <div>Calories</div>
           <Slider
             value={maxCalorie}
             max={maxNumber}
@@ -52,13 +52,13 @@ class SearchByName extends React.Component {
         </div>
 
         <form>
-          <input type='text' placeholder='Search by dish' onChange={(e) => {this.onChange(e)}}></input>
+          <input type='text' placeholder='Name & Ingred. Count' onChange={(e) => {this.onChange(e)}}></input>
           <select value={this.state.ingredientCount}
             onChange={this.handleChange}>
             <option disabled="disabled">#</option>
               {ingredientsNumber.map((number, i) => { return ( <option key={i}>{number}</option> )})}
           </select>
-          <button type='submit' onClick = {(e) => this.props.searchFood({food: this.state.foodSearch, maxCalorie: this.state.maxCalorie, count: this.state.ingredientCount}, e)}><i className="fa fa-search"></i></button>
+          <button type='submit' onClick = {(e) => this.props.searchFood({food: this.state.foodSearch, maxCalorie: this.state.maxCalorie, count: this.state.ingredientCount}, e)}><i className="fa fa-cutlery"></i></button>
         </form>
       </div>
     )

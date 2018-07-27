@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS foodApp;
+
+CREATE DATABASE foodApp;
+
+USE foodApp;
+
+CREATE TABLE recipe (
+  id int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (id),
+  image varchar(35) NOT NULL,
+  label varchar(35) NOT NULL,
+  dietLabel varchar(35) NOT NULL,
+  calories int NOT NULL,
+  comment varchar(350) NULL,
+);

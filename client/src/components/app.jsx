@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import SearchByName from './searchByName.jsx'
 import SearchedFood from './searchedFood.jsx'
+import NavBar from './navBar.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -36,12 +37,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Hey There World</p>
-        <hr style={{backgroundColor: 'teal'}}></hr>
+        <NavBar/>
         <div>
           <SearchByName searchFood={this.searchFood}/>
         </div>
-        <div>
+        <div className="mainAppDiv">
           <SearchedFood foodResults={this.state.foodResults}/>
         </div>
       </div>
