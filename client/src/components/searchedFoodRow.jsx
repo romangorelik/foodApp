@@ -1,9 +1,20 @@
 import React from 'react'
 import c3 from '../../dist/c3.min.js'
+import axios from 'axios'
 
 class SearchedFoodRow extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      comment: '',
+      image: '',
+      link: '',
+      calores: 0,
+      label: '',
+      dietLabel: ''
+    }
+    this.getData = this.getData.bind(this)
+    this.saveToDatabase = this.saveToDatabase.bind(this)
   }
 
   componentDidMount() {
@@ -26,9 +37,34 @@ class SearchedFoodRow extends React.Component {
               onmouseout: function (d, i) { console.log("onmouseout", d, i); }
           },
           donut: {
-              title: "Nutrional Values"
+              title: `Calories: ${Math.floor(this.props.food.recipe.calories/this.props.food.recipe.yield)}`
           }
     })
+  }
+
+  getData(food) {
+    this.setState({
+      image: food.recipe.image,
+      link: food.recipe.url,
+      calores: Math.floor(food.recipe.calories/food.recipe.yield),
+      label: food.recipe.label,
+      dietLabel: food.recipe.dietLabels[0]
+    })
+  }
+
+  saveToDatabase(food) {
+    axios.post('/foodsearch/commented', {
+        image: food.recipe.image,
+        label: food.recipe.label,
+        dietLabel: food.recipe.dietLabels[0],
+        calories: Math.floor(food.recipe.calories/food.recipe.yield),
+        comment: this.state.comment
+    })
+  }
+
+  onChange(e) {
+    e.preventDefault()
+    this.setState({comment: e.target.value})
   }
 
   render() {
@@ -57,19 +93,17 @@ class SearchedFoodRow extends React.Component {
              })}
            </div>
 
-           <p>Calories {Math.floor(food.recipe.calories/food.recipe.yield)}</p>
-
            <article className="media">
              <div className="media-content">
               <div className="field">
                 <p className="control">
-                  <textarea className="textarea" placeholder="Add a comment..."></textarea>
+                  <textarea className="textarea" placeholder="Add a comment..." maxLength="350" onChange={(e) => {this.onChange(e)}}></textarea>
                 </p>
               </div>
               <nav className="level">
                 <div className="level-left">
                   <div className="level-item">
-                    <a className="button is-info">Submit</a>
+                    <button className="button is-info" onClick = {(e) => this.saveToDatabase(food)}>Submit</button>
                   </div>
                 </div>
               </nav>

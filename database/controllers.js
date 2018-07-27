@@ -11,3 +11,16 @@ exports.getFood = (req, res) => {
   .then(response => res.send(response.data.hits))
   .catch(err => console.error(err))
 }
+
+exports.getComments = (req, res) => {
+  foodModel.getAllComments()
+  .then(response => res.send(response))
+  .catch(err => res.send(err))
+}
+
+exports.postComment = (req, res) => {
+  console.log(req.body)
+  foodModel.postOneComment(req.body)
+  .then(response => res.send('posted'))
+  .catch(err => res.send(err))
+}
