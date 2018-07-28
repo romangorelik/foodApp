@@ -29,8 +29,12 @@ class Commented extends React.Component {
       <div>
         {this.state.results.map((food, i) => {
           return (
-            <div>
+            <div key={i}>
+              <p>{food.label}</p>
               <img src={food.image} height="250" width="auto"></img>
+              <p>{food.dietLabel}</p>
+              <p>{food.calories}</p>
+              <p>{food.comment}</p>
             </div>
           )
         })}

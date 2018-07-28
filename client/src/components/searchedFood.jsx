@@ -9,6 +9,7 @@ class SearchedFood extends React.Component {
 
     }
   }
+
   render() {
     return (
       <div>
