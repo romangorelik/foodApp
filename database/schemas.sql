@@ -1,8 +1,4 @@
-DROP DATABASE IF EXISTS foodApp;
-
-CREATE DATABASE foodApp;
-
-USE foodApp;
+USE recipedb1;
 
 CREATE TABLE recipe (
   id int NOT NULL AUTO_INCREMENT,

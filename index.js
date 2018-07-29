@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const axios = require('axios')
 const router = require('./database/routes.js')
 
-
+const db = require('./database/connection.js')
 
 const app = express()
 app.use(bodyParser.json())
