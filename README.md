@@ -27,6 +27,9 @@ Built With
 * [Sequalize](http://docs.sequelizejs.com/)
 * [PostgreSQL](https://www.postgresql.org/)
 
+API
+----------
+* [Edamam](https://www.edamam.com/)
 
 Screenshots
 -----------
