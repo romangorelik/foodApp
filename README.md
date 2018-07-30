@@ -18,7 +18,7 @@ Built With
 * [AWS RDS](https://aws.amazon.com/rds/)
 * [PM2](http://pm2.keymetrics.io/)
 * [React Router](https://github.com/ReactTraining/react-router)
-* [React Slider](https://github.com/react-component/slider)
+* [React Range Slider](https://www.npmjs.com/package/react-rangeslider)
 * [C3](https://c3js.org/)
 * [D3](https://d3js.org/)
 
