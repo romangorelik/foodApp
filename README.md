@@ -21,7 +21,7 @@ Built With
 * [C3](https://c3js.org/)
 * [D3](https://d3js.org/)
 
-
+----------
 
 * [Sequalize](http://docs.sequelizejs.com/)
 * [PostgreSQL](https://www.postgresql.org/)
